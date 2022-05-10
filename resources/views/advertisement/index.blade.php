@@ -1,35 +1,51 @@
-@extends('layouts.app')
 
+@extends('layouts.app')
 @section('title', 'Classifieds Board')
 
 @section('content')
 
-    <div class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="navbar navbar-expand-md navbar-light bg-white shadow-sm"  id="categories">
         <ul class="navbar-nav">
-            <li class="nav-item  {{ Route::currentRouteName() == 'advertisement.index' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('advertisement.index') }}">All</a>
-            </li>
+            <a class="nav-link" href="{{ route('advertisement.index') }}">
+                <li class="nav-item  {{ Route::currentRouteName() == 'advertisement.index' ? 'active' : '' }}">
+                    <div></div>
+                    <span>All</span>
+                </li>
+            </a>
+            
             @php
                 $category_id = $category->id ?? '';
             @endphp
             @foreach ($categories as $cat)
+            <a class="nav-link"
+                href="{{ route('advertisement.adsByCategory', $cat->id) }}">
                 <li class="nav-item {{ $category_id === $cat->id ? 'active' : '' }}">
-                    <a class="nav-link"
-                        href="{{ route('advertisement.adsByCategory', $cat->id) }}">{{ $cat->title }}</a>
+                        <div><i class="{{$cat->url_icon}}"></i></div>      
+                        <span>{{ $cat->title }}</span>
                 </li>
+            </a>
             @endforeach
         </ul>
     </div>
 
     <div class="row mx-3">
         @foreach ($ads as $ad)
-            <div class="col-3 p-0">
-                <div class="card m-2 p-0">
-                    <a href="{{ route('advertisement.show', $ad->id) }}">
-                        <img src="{{ $ad->image_url }}" class="card-img-top"></a>
-                    <p class="text-right text-muted p-2 m-0">{{ $ad->price }} &euro;</p>
+            <article>
+                <a href="{{ route('advertisement.show', $ad->id) }}">
+                    <div>
+                        <img src="{{ $ad->image_url }}" class="card-img-top">
+                    </div>
+                </a>
+                <div>
+                    <span>{{ $ad->price }} dh</span>
+                    <p>Titre d'annonce</p>
+                    <p>{{ $ad->category->title }} </p>
+                    <div>
+                        <span><i class="fa fa-calendar"></i> {{ $ad->created_at }}</span>
+                        <span><i class="fa fa-map-marker"></i> ville</span>
+                    </div>
                 </div>
-            </div>
+            </article> 
         @endforeach
     </div>
 

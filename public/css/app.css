@@ -3915,7 +3915,7 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
+  background-color: red;
   border-color: #dee2e6 #dee2e6 #f8fafc;
 }
 .nav-tabs .dropdown-menu {
@@ -10001,4 +10001,96 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+#ad_ads{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 14px;
+    background-color: #29A160;
+}
+#right-side-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 360px;  
+}
+#categories{
+  display: flex;
+  justify-content: center;
+}
+#categories>ul>a>li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border : 1px solid #d7d1d1;
+  height: 90px;
+  width: 82px;
+  margin-left:5px;
+  padding-top: 5px;
+  border-radius: 7px;
+}
+#categories>ul>a>li>div{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #eaf9ef;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+#categories>ul>a>li>div>i{
+  font-size: 28px;
+  color:#61ca67;
+}
+article{
+  background-color: white;
+  margin: 15px;
+  width: 300px;
+  height: 365px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: rgba(108, 117, 125, 0.5) 1px 1px 10px;
+}
+article>a>div{
+  width: 280px;
+    height: 230px;
+    background-color: wheat;
+    overflow: hidden;
+    border-radius: 10px;
+}
+article>a>div>img
+{
+  min-height: 230px;
+}
+article>div{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+article>div>span:nth-child(1){
+  margin-top: -6px;
+  color: rgb(46, 107, 255);
+  font-size: 24px;
+  font-weight: 400;
+}
+article>div>p:nth-child(2){
+  margin-top: -6px;
+  color: rgb(74, 74, 74);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+article>div>p:nth-child(3){
+  margin-top: -7px;
+  margin-bottom: 21px;
+}
+article>div>div{
+    margin: 0;
+    margin-top: -20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
 }

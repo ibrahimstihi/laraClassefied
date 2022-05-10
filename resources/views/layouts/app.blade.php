@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,17 +26,17 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" id="right-side-header">
                     <li class="nav-item {{ Route::currentRouteName() == 'advertisement.index' ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('advertisement.index') }}">Classifieds board</a>
+                        <a class="nav-link" href="{{ route('advertisement.index') }}">
+                            LOGO
+                        </a>                     
                     </li>
-                    @auth
-                        <li class="nav-item {{ Route::currentRouteName() == 'advertisement.admin' ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('advertisement.admin') }}">My ads</a>
-                        </li>
-                    @endauth
                     <li class="nav-item {{ Route::currentRouteName() == 'advertisement.create' ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('advertisement.create') }}">Post ad</a>
+                        <a class="nav-link" href="{{ route('advertisement.create') }}" id="ad_ads">
+                            <i class="fa fa-plus"></i>
+                            DÉPOSER UNE ANNONCE
+                        </a>
                     </li>
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -56,26 +57,31 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecte') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fa fa-user"></i>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item {{ Route::currentRouteName() == 'advertisement.admin' ? 'active' : '' }}" href="{{ route('advertisement.admin') }}">
+                                        mes annonces
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                     document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

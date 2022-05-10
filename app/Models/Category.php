@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title',
+        'title','url_icon'
     ];
 
     public function advertisements()
