@@ -10045,9 +10045,15 @@ h3 {
   font-size: 28px;
   color:#61ca67;
 }
+.row
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 article{
   background-color: white;
-  margin: 15px;
+  margin: 5px;
   width: 300px;
   height: 365px;
   padding: 10px;
@@ -10094,3 +10100,43 @@ article>div>div{
     justify-content: space-between;
     font-size: 13px;
 }
+#ads_detail
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#ads_detail>div:nth-child(1){
+  width: 80%;
+  background: white;
+  padding: 10px;
+}
+#ads_detail>div:nth-child(1)>div:nth-child(1){
+  width:60%;
+}
+#ads_detail>div:nth-child(1)>div:nth-child(1) img{
+  width:100%;
+  border-radius: 5px;
+}
+#ads_detail>div:nth-child(1)>div:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px;
+}
+#ads_detail>div:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 30%;
+  margin-left: 30px;
+  align-items: center;
+}
+#ads_detail>div:nth-child(2)>div{
+  width: 90px;
+  height: 90px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 20px;
+}
+

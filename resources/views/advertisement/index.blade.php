@@ -38,11 +38,11 @@
                 </a>
                 <div>
                     <span>{{ $ad->price }} dh</span>
-                    <p>Titre d'annonce</p>
+                    <p>{{$ad->titre}}</p>
                     <p>{{ $ad->category->title }} </p>
                     <div>
                         <span><i class="fa fa-calendar"></i> {{ $ad->created_at }}</span>
-                        <span><i class="fa fa-map-marker"></i> ville</span>
+                        <span><i class="fa fa-map-marker"></i> {{$ad->ville}}</span>
                     </div>
                 </div>
             </article> 

@@ -6,19 +6,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 use App\Models\Category;
+use App\Models\User;
 
 class AdvertisementController extends Controller
 {
     const FORM_VALIDATION_RULES = [
         'description' => 'required|min:10|max:1000',
-        'price' => 'required|numeric|between:0,99999.99',
+        'titre' => 'required|max:1000',
+        'ville' => 'required',
+        'price' => 'required|numeric',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'category_id' => 'required|exists:categories,id',
     ];
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show', 'adsByCategory']]);
+        $this->middleware('auth', ['except' => ['index','show', 'adsByCategory']]);
     }
 
     public function index()
@@ -40,7 +43,7 @@ class AdvertisementController extends Controller
 
         return view('advertisement.index', ['ads' => $ads, 'categories' => Category::all(), 'category' => $category]);
     }
-
+    
     public function create()
     {
         return view('advertisement.create', ['categories' => Category::all()]);

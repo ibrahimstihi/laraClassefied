@@ -27,6 +27,12 @@
                         {{ $cat->title }}</option>
                 @endforeach
             </select>
+            
+            <label for="titre" class="mt-2 mb-1">Titre d'annone :</label>
+            <input class="form-control col-sm-8" id="titre" name="titre" value="{{ old('titre') }} ">
+
+            <label for="ville" class="mt-2 mb-1">La ville :</label>
+            <input class="form-control col-sm-8" id="ville" name="ville" value="{{ old('ville') }} ">
 
             <label for="description" class="mt-2 mb-1">Description:</label>
             <textarea class="form-control col-sm-8" id="description" name="description" rows="4"

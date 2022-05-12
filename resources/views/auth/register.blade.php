@@ -45,6 +45,15 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="phone"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('numero de telephone') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="phone" class="form-control" name="phone " value="{{ old('phone') }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

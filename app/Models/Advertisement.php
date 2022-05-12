@@ -14,6 +14,8 @@ class Advertisement extends Model
         'description',
         'price',
         'category_id',
+        'titre',
+        'ville',
     ];
 
     public function category()

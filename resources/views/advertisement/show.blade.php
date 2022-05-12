@@ -4,8 +4,8 @@
 
 @section('content')
 
-    <div class="container bg-white p-3">
-        @auth
+    <div class="container  p-3" id="ads_detail">
+        {{--@auth
             @if (auth()->user()->id === $ad->user_id)
                 <form class="text-right" method="post" action="{{ route('advertisement.destroy', $ad->id) }}">
                     @csrf
@@ -14,21 +14,31 @@
                     <button type="submit" class="btn btn-secondary">Delete</button>
                 </form>
             @endif
-        @endauth
+        @endauth--}}
 
         <div class="row">
-            <img class="col-6" src="{{ $ad->image_url }}">
-
+            <div>
+                <img src="{{ $ad->image_url }}">
+            </div>
+            
             <div class="col">
-                <h5><b>id: hhhh</b>{{ $ad->id }}</h5>
-                <h5><b>category: </b>{{ $ad->category->title }}</h5>
-                <h5><b>price: </b>{{ $ad->price }} &euro;</h5>
-                <h5><b>description:</b></h5>
-                <p>{{ $ad->description }}</p>
+                <span>{{ $ad->price }} dh</span>
+                <p>{{$ad->titre}}</p>
+                <p>{{ $ad->category->title }} </p>
+                <span><i class="fa fa-map-marker"></i> {{$ad->ville}}</span>
+                <span>description :</span>
+                <p>
+                    {{$ad->description}}
+                </p>
+                <span><i class="fa fa-calendar"></i> {{ $ad->created_at }}</span>
             </div>
         </div>
-
-
-
+        <div>
+            <div></div>
+            <span>Ibrahim Stihi</span>
+            <a>0656520190 {{$ad->user_id}}</a>
+            <span>active : ss/SS/Ss</span>
+        </div>
     </div>
+
 @endsection
