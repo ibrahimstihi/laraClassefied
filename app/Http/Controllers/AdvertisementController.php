@@ -43,6 +43,7 @@ class AdvertisementController extends Controller
 
         return view('advertisement.index', ['ads' => $ads, 'categories' => Category::all(), 'category' => $category]);
     }
+
     
     public function create()
     {

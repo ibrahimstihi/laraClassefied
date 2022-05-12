@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -68,13 +69,13 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fa fa-user"></i>
-                                    {{ Auth::user()->name }}
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <div>
+                                        <img src="/images/1.jpg">                                 
+                                        <span> {{ Auth::user()->name }}</span>
+                                    </div>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item {{ Route::currentRouteName() == 'advertisement.admin' ? 'active' : '' }}" href="{{ route('advertisement.admin') }}">
                                         mes annonces
