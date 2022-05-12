@@ -35,9 +35,9 @@
         </div>
         <div>
             <div></div>
-            <span>Ibrahim Stihi</span>
-            <a>0656520190 {{$ad->user_id}}</a>
-            <span>active : ss/SS/Ss</span>
+            <span>{{$ad->user->name}}</span>
+            <a>{{$ad->user->phone}}</a>
+            <span>active : {{$ad->user->created_at}}</span>
         </div>
     </div>
 
