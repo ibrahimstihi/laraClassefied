@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class RegisterController extends Controller
 {
@@ -63,13 +64,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    
     protected function create(array $data)
     {
-        return User::create([
+        
+        $file_extention = $data['photo']->getClientOriginalExtension();
+        $file_name = uniqid().'.'.$file_extention;
+        $data['photo']->move(public_path('/images/users/'), $file_name);
+        $file_path = '/images/users/'.$file_name;
+        
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'photo' => $file_path,   
             'password' => Hash::make($data['password']),
         ]);
+
+        return $user;
+
     }
 }

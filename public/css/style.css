@@ -128,10 +128,36 @@ article>div>div{
   margin-left: 30px;
   align-items: center;
 }
-#ads_detail>div:nth-child(2)>div{
+#ads_detail>div:nth-child(2)>img{
   width: 90px;
   height: 90px;
-  background-color: gray;
   border-radius: 50%;
   margin: 20px;
+}
+#ads_detail>div:nth-child(2)>a{
+  border: 2px solid #6592f5;
+    padding: 0px 14px 0px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #6592f5;
+    letter-spacing: 2px;
+    margin: 10px;
+}
+#ads_detail>div:nth-child(2)>span:nth-child(2){
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+#navbarDropdown{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+#navbarDropdown>div>img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 4px;
 }

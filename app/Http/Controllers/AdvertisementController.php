@@ -27,7 +27,7 @@ class AdvertisementController extends Controller
 
         return view('advertisement.index', ['ads' => $ads, 'categories' => Category::all()]);
     }
-
+    
     public function adsByCategory($id)
     {
         $category = Category::find($id);

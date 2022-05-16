@@ -70,9 +70,9 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre id="auth_user">
                                     <div>
-                                        <img src="/images/1.jpg">                                 
+                                        <img src="{{Auth::user()->photo}}">                                 
                                         <span> {{ Auth::user()->name }}</span>
                                     </div>
                                 </a>

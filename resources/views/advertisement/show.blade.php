@@ -34,10 +34,13 @@
             </div>
         </div>
         <div>
-            <div></div>
+            <img src="{{$ad->user->photo}}">
             <span>{{$ad->user->name}}</span>
-            <a>{{$ad->user->phone}}</a>
-            <span>active : {{$ad->user->created_at}}</span>
+            <a>
+                <i class="fa fa-phone"></i>
+                {{$ad->user->phone}}
+            </a>
+            <span>member depuis: {{$ad->user->created_at->format('y M')}}</span>
         </div>
     </div>
 
