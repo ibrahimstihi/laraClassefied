@@ -29,6 +29,7 @@ Route::get('advertisement/category/{id}', [AdvertisementController::class, 'adsB
     Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'App\Http\Controllers\UserController@edit']);
     Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'App\Http\Controllers\UserController@update']);
 
+
 Route::resource('advertisement', AdvertisementController::class);
 
 Auth::routes();

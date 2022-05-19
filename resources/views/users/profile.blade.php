@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Register')
+@section('title', 'Profile')
 
 @section('content')
 <?php
@@ -38,7 +38,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ $user->email}}" required autocomplete="email">
+                                        name="email" value="{{ $user->email}}" required autocomplete="email" disabled>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -65,6 +65,16 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="current-password"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Curent Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="current-password" type="password" class="form-control"
+                                        name="current-password" required >
+                                </div>
+                            </div>
+
+                            {{-- <div class="form-group row">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -79,9 +89,9 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -93,12 +103,24 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Curent Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-valid" type="password" class="form-control"
+                                        name="password_valid" required >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('photo de profile') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="photo" type="file" class="form-control" name="photo" >
                                 </div>
-                            </div>
+                            </div> --}}
+
+                            
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
@@ -112,5 +134,5 @@
                 </div>
             </div>
         </div>
-    </div>                        
+    </div>                     
 @endsection
