@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdvertisementController;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +24,10 @@ Route::get('advertisement/admin', [AdvertisementController::class, 'admin'])
 
 Route::get('advertisement/category/{id}', [AdvertisementController::class, 'adsByCategory'])
     ->name('advertisement.adsByCategory');
+
+
+    Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'App\Http\Controllers\UserController@edit']);
+    Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'App\Http\Controllers\UserController@update']);
 
 Route::resource('advertisement', AdvertisementController::class);
 
