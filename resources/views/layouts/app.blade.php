@@ -83,9 +83,9 @@
                                     <a class="dropdown-item {{ Route::currentRouteName() == 'advertisement.admin' ? 'active' : '' }}" href="{{ route('advertisement.admin') }}">
                                         mes annonces
                                     </a>                       
-                                    <a class="dropdown-item" href="{{route('users.edit', $user)}}">
+                                    <a class="dropdown-item" href="{{route('dashboard')}}">
                                         <i class="fa fa-cog"></i>
-                                        {{ __('parmetre de profile') }}
+                                        parmetre de profile
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
