@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')	
- <div class="row">
+ <div class="row" id="profile">
  	<div class="col-md-4">
  		<ul class="list-group profile-nav">
 		  <li class="list-group-item {{(request()->route()->getName()=='dashboard')?'active':''}}"><a href="{{route('dashboard')}}">Dashboard </a></li>

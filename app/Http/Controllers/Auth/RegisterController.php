@@ -72,13 +72,12 @@ class RegisterController extends Controller
         $file_name = uniqid().'.'.$file_extention;
         $data['photo']->move(public_path('/images/users/'), $file_name);
         $file_path = '/images/users/'.$file_name;
-        
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'photo' => $file_path,   
+            'photo' => $file_path ?? '/images/users/default.png',   
             'password' => Hash::make($data['password']),
         ]);
 

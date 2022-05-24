@@ -164,3 +164,6 @@ article>div>div{
 .profile-nav .active a{
   color: white !important;
 }
+#profile{
+  align-items: flex-start;
+}

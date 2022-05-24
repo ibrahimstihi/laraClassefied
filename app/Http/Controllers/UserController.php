@@ -48,18 +48,22 @@ class UserController extends Controller
     
         if (!(Hash::check(request('current-password'), $user->password))) {
             // The passwords matches
-            return redirect()->back()->with("error","Your current password does not matches with the password.");
+            return back()
+            ->with('message_type', 'danger')
+            ->with('message', 'Your current password does not matches with the password.');;
         }
 
             $user->name     = request('name');
             $user->email    = $user->email;
             $user->phone    = request('phone');
 
-            $user->photo    =  $user->photo ;
+            $user->photo    =  $user->photo;
             $user->password =  $user->password;
 
             $user->save();   
-        return back();
+        return back()
+        ->with('message_type', 'success')
+        ->with('message', 'You have successfully update your profile');
     }
 
     public function change_password(){ 

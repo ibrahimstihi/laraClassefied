@@ -34,7 +34,10 @@
             </div>
         </div>
         <div>
-            <img src="{{$ad->user->photo}}">
+            <?php
+                $default_profil = "/images/users/default.png";
+            ?>
+            <img src="{{$ad->user->photo}}?{{$default_profil}}">
             <span>{{$ad->user->name}}</span>
             <a>
                 <i class="fa fa-phone"></i>
