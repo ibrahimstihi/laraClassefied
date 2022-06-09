@@ -32,6 +32,12 @@
                 @endforeach
             </select>
 
+            <label for="titre" class="mt-2 mb-1">Titre d'annonce :</label>
+            <input type="text" class="form-control col-sm-8" id="titre" name="titre" value="{{$ad->ville}}">
+
+            <label for="ville" class="mt-2 mb-1">la ville:</label>
+            <input type="text" class="form-control col-sm-8" id="ville" name="ville" value="{{$ad->titre}}">
+
             <label for="description" class="mt-2 mb-1">Description:</label>
             <textarea class="form-control col-sm-8" id="description" name="description" rows="4"
                 cols="50">{{ old('description') ?? $ad->description }}</textarea>

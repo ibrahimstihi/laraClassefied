@@ -8,7 +8,9 @@
         <ul class="navbar-nav">
             <a class="nav-link" href="{{ route('advertisement.index') }}">
                 <li class="nav-item  {{ Route::currentRouteName() == 'advertisement.index' ? 'active' : '' }}">
-                    <div></div>
+                    <div>
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </div>
                     <span>All</span>
                 </li>
             </a>
@@ -30,6 +32,7 @@
 
     <div class="row mx-3">
         @foreach ($ads as $ad)
+            @if($ad->is_valide == 1)
             <article>
                 <a href="{{ route('advertisement.show', $ad->id) }}">
                     <div>
@@ -45,7 +48,8 @@
                         <span><i class="fa fa-map-marker"></i> {{$ad->ville}}</span>
                     </div>
                 </div>
-            </article> 
+            </article>
+            @endif
         @endforeach
     </div>
 

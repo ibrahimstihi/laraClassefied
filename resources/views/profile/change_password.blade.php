@@ -14,12 +14,6 @@
 		@foreach ($errors->all() as $error)
             <p class="text-danger">{{ $error }}</p>
         @endforeach
-		{{-- <div class="form-group row">
-			<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('New password') }}</label>
-			<div class="col-md-6">
-				<input id="new_password" type="password" name="new_password" class="form-control">
-			</div>
-		</div> --}}
         <div class="form-group row">
 			<label for="password"
 				class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>

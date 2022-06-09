@@ -36,7 +36,7 @@
                     <li class="nav-item {{ Route::currentRouteName() == 'advertisement.create' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('advertisement.create') }}" id="ad_ads">
                             <i class="fa fa-plus"></i>
-                            DÉPOSER UNE ANNONCE
+                            <span>ÉPOSER UNE ANNONCE</span>
                         </a>
                     </li>
                 </ul>
@@ -81,6 +81,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item {{ Route::currentRouteName() == 'advertisement.admin' ? 'active' : '' }}" href="{{ route('advertisement.admin') }}">
+                                        <i class="fa fa-bell-o" aria-hidden="true"></i>
                                         mes annonces
                                     </a>                       
                                     <a class="dropdown-item" href="{{route('dashboard')}}">
@@ -88,6 +89,12 @@
                                         parmetre de profile
                                     </a>
 
+                                    @if(auth()->check() && auth()->user()->is_admin == 1)
+                                    <a class="dropdown-item" href="{{route('new_ads')}}">
+                                        <i class="fa fa-id-badge"></i>
+                                        Management
+                                    </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

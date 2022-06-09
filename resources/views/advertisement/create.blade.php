@@ -38,12 +38,21 @@
             <textarea class="form-control col-sm-8" id="description" name="description" rows="4"
                 cols="50">{{ old('description') }}</textarea>
 
-            <label for="image" class="mt-2 mb-1">Image:</label>
-            <input type="file" class="form-control col-sm-8" id="image" name="image">
-
             <label for="price" class="mt-2 mb-1">Price:</label>
             <input type="number" class="form-control col-sm-2" id="price" name="price" min="0.00" step="0.01"
                 value="{{ old('price') ?? 0 }}" /><br>
+            
+            <label for="image" class="mt-2 mb-1">Image 1:</label>
+            <input type="file" class="form-control col-sm-8" id="image" name="image">
+
+            {{-- for multi image --}}
+            <label for="image1" class="mt-2 mb-1">Image 2:</label>
+            <input type="file" class="form-control col-sm-8" id="image1" name="image1">
+            <label for="image2" class="mt-2 mb-1">Image 3:</label>
+            <input type="file" class="form-control col-sm-8" id="image2" name="image2">
+            <label for="image3" class="mt-2 mb-1">Image 4:</label>
+            <input type="file" class="form-control col-sm-8" id="image3" name="image3">
+            {{-- end --}}
 
             <input type="submit" class="btn btn-primary" value="Submit">
         </form>

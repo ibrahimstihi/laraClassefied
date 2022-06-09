@@ -52,6 +52,11 @@ class AdvertisementController extends Controller
 
         $ad = Advertisement::create($request->all());
         $ad->updateImage($request->image);
+        //start
+        $ad->updateImage1($request->image1);
+        $ad->updateImage2($request->image2);
+        $ad->updateImage3($request->image3);
+        //end
 
         return redirect(route('advertisement.show', [$ad->id]))
             ->with('message_type', 'success')
@@ -95,10 +100,19 @@ class AdvertisementController extends Controller
 
         $ad->update($request->all());
         $ad->updateImage($request->image);
-
+        //start
+        $ad->updateImage1($request->image1);
+        $ad->updateImage2($request->image2);
+        $ad->updateImage3($request->image3);
+        //end
         return redirect(route('advertisement.show', [$ad->id]))
             ->with('message_type', 'success')
             ->with('message', 'You have successfully updated advertisement.');
+    }
+    public function ads_valide(Advertisement $ad)
+    {
+        $ad->is_valide = 1;
+        return $ad->price;
     }
 
     public function destroy($id)
@@ -109,12 +123,17 @@ class AdvertisementController extends Controller
             return redirect(route('advertisement.admin'));
         }
 
-        if (Auth::id() !== $ad->user_id) {
+        
+        if(Auth::id() !== $ad->user_id || Auth::user()->is_admin==1){
+            $ad->delete();
+        }else{
             abort(403);
         }
-
-        $ad->delete();
-
+        if(Auth::user()->is_admin==1){
+            return back()
+            ->with('message_type', 'success')
+            ->with('message', 'You have successfully deleted advertisement.');
+        }
         return redirect(route('advertisement.admin'))
             ->with('message_type', 'success')
             ->with('message', 'You have successfully deleted advertisement.');
@@ -126,4 +145,32 @@ class AdvertisementController extends Controller
 
         return view('advertisement.admin', ['ads' => $ads]);
     }
+    public function valide($id)
+    {
+        $ad = Advertisement::find($id);
+        $ad->is_valide = 1;
+        $ad->save();
+
+        return back();
+    }
+    public function masque($id)
+    {
+        $ad = Advertisement::find($id);
+        $ad->is_valide = 0;
+        $ad->save();
+
+        return back();
+    }
+    // public function ads_valide(Advertisement $ad)
+    // {
+    //     $ad->is_valide = 1;
+    //     $ad->price =1000;
+    //     $ad->description = $ad->description;
+    //     $ad->image_url = $ad->image_url;
+    //     $ad->titre= $ad->titre;
+    //     $ad->ville = $ad->ville;
+    //     $ad->category_id=$ad->category_id;
+    //     $ad->save();      
+    //     return back();
+    // }
 }

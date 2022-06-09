@@ -37,7 +37,7 @@
             <?php
                 $default_profil = "/images/users/default.png";
             ?>
-            <img src="{{$ad->user->photo}}?{{$default_profil}}">
+            <img src="{{$ad->user->photo}}">
             <span>{{$ad->user->name}}</span>
             <a>
                 <i class="fa fa-phone"></i>
